@@ -93,6 +93,7 @@ const displayController = (() => {
 
 const gameBoard = (() => {
     let board = []
+    let moveCounter = 0;
 
     const setBoard = () => {
         for (let i = 0; i < 9; i++) {
@@ -111,11 +112,18 @@ const gameBoard = (() => {
     }
 
     const setTile = (tile, event) => {
+
         if (board[tile].marker == '' && gameFlow.getWinner() == null) {
             const player = gameFlow.getCurrentPlayer()
             board[tile].player = player
             board[tile].marker = player.getMarker()
             event.target.innerHTML = displayController.getDisplayMarker()
+            moveCounter++;
+
+            if (moveCounter >= 9) {
+                displayController.updateDisplay(`It's a tie! Rematch?`);
+                return
+            }
 
             gameFlow.checkWinCondition(board)
 
