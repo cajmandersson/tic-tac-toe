@@ -22,19 +22,18 @@ const displayController = (() => {
 
     const setScoreUI = () => {
         const container = document.querySelector('.container')
-        console.log(container)
         const ui = document.createElement('div')
         ui.classList.toggle('scoreUI')
         const h1 = document.createElement('h1')
         h1.classList.toggle('score')
-        h1.innerHTML = `Player ${getDisplayMarker()}, time to make a move..`
+        h1.innerHTML = `Player ${getDisplayMarker()}, make your move..`
         ui.append(h1)
         container.append(ui)
     }
 
     const updateScoreUI = () => {
         const score = document.querySelector('.score')
-        score.innerHTML = `Player ${getDisplayMarker()}, time to make a move..`
+        score.innerHTML = `Player ${getDisplayMarker()}, make your move..`
     }
 
     const updateDisplay = (message) => {
@@ -81,7 +80,7 @@ const displayController = (() => {
     }
 
     const playerMove = (event) => {
-        const index = event.target.getAttribute('tile-index')
+        const index = event.currentTarget.getAttribute('tile-index')
         gameFlow.getCurrentPlayer().makeMove(index, event)
     }
 
@@ -124,11 +123,14 @@ const gameBoard = (() => {
                 gameFlow.toggleCurrentPlayer()
                 displayController.updateScoreUI()
             } else {
-                displayController.updateDisplay(`Player ${displayController.getDisplayMarker()} takes the win!`);
+                displayController.updateDisplay(`Player ${displayController.getDisplayMarker()} wins!`);
                 return
             }
+
         } else {
+
             displayController.updateDisplay('Illegal move, try again!')
+
             return
         }
     }
