@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: #5CDB95;
+}
+
+.container {
+    width: 750px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "scoreUI scoreUI"
+    "controlBtns board";
+
+}
+
+.scoreUI {
+    width: 100%;
+    font-size: 24px;
+    grid-area: scoreUI;
+    margin-bottom: 100px;
+    color: #05386b;
+    text-align: center;
+}
+
+.scoreUI > h1 > span {
+    background-color: #05386b;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.controlBtns {
+    grid-area: controlBtns;
+    display: flex;
+    justify-content: center;
+}
+
+.newGameBtn {
+    background-color: #05386b;
+    height: 15%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: #EDF5E1;
+}
+
+
+.board {
+    grid-area: board;
+    max-width: 470px;
+    max-height: 470px;
+    display: grid;
+    gap:10px;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.tile {
+    background-color: #05386b;
+    height: 150px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+}
+
+.tile > span {
+    font-size: 48px;
+}
+
+
+.playerOne {
+    color: lemonchiffon;
+}
+
+.playerTwo {
+    color: lightcoral;
+}
