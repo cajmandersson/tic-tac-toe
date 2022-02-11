@@ -79,6 +79,7 @@ body {
     width: 150px;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .tile > span {
