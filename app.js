@@ -27,14 +27,14 @@ const displayController = (() => {
         ui.classList.toggle('scoreUI')
         const h1 = document.createElement('h1')
         h1.classList.toggle('score')
-        h1.innerHTML = `Player ${getDisplayMarker()} time to make a move..`
+        h1.innerHTML = `Player ${getDisplayMarker()}, time to make a move..`
         ui.append(h1)
         container.append(ui)
     }
 
     const updateScoreUI = () => {
         const score = document.querySelector('.score')
-        score.innerHTML = `Player ${getDisplayMarker()} time to make a move..`
+        score.innerHTML = `Player ${getDisplayMarker()}, time to make a move..`
     }
 
     const updateDisplay = (message) => {
